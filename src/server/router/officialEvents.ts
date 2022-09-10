@@ -1,7 +1,7 @@
 import { createRouter } from "./context";
 import { z } from "zod";
 
-export const carsRouter = createRouter()
+export const officialEventsRouter = createRouter()
   .query("getAll", {
     async resolve({ ctx }) {
       return await ctx.prisma.officialEvent.findMany();

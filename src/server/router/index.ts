@@ -6,7 +6,9 @@ import { exampleRouter } from "./example";
 import { protectedExampleRouter } from "./protected-example-router";
 import { placesRouter } from "./places";
 import { carsRouter } from "./cars";
-import { OfficialEvents } from "./officialEvents";
+import { officialEventsRouter } from "./officialEvents";
+
+// import { officialEvents } from "./officialEvents";
 
 export const appRouter = createRouter()
   .transformer(superjson)
@@ -14,7 +16,9 @@ export const appRouter = createRouter()
   .merge("auth.", protectedExampleRouter)
   .merge("place.", placesRouter)
   .merge("car.", carsRouter)
-  .merge("officialEvent.", officialEventsRouter);
+  .merge("officialEvent.", officialEventsRouter)
+
+  // .merge("officialEvent.", officialEventsRouter);
   
 
 // export type definition of API

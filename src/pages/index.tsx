@@ -57,8 +57,8 @@ const Home: NextPage = () => {
   const handleSignIn = useCallback(() => signIn(), []);
   const handleSignOut = useCallback(() => signOut(), []);
 
-  console.log(places.data)
-  console.log(cars.data)
+  console.log(places)
+  console.log(cars)
   console.log(!!data) //tu jest czy zalogowany
 
   return (
@@ -101,37 +101,40 @@ const Home: NextPage = () => {
         
         {/* <button onClick={handleSignOut}>Logout</button> */}
         </h1>
-        <div>
+        
+        <div className="flex flex-col items-between w-96">
+
+{/* {places.data?.map((place: any) =>
+<div className="flex flex-col justify-around text-body-color m-6 p-8 w-72 min-w-[18rem] h-40 opacity-100 rounded-md snap-center bg-red-800">
+  <span >{place.name}</span>
+  <span >{place.rating}/10</span>
+  <span >{place.address}</span>
+  <span >{place.description}</span>
+</div>
+)} */}
+
+</div>
+
+        <div className="flex flex-row justify-between">
+
           {
             (page == 'official') ? <AssetOfficialEvents/> : 'eadsa'
           }
           
         </div>
-        {/* <div className="flex flex-col items-between w-96">
 
-          {places.data?.map((place: any) =>
-          <div className="flex flex-col justify-around text-body-color m-6 p-8 w-72 min-w-[18rem] h-40 opacity-100 rounded-md snap-center bg-red-800">
-            <span >{place.name}</span>
-            <span >{place.rating}/10</span>
-            <span >{place.address}</span>
-            <span >{place.description}</span>
-          </div>
-          )}
+        <div className="flex flex-col items-between w-96">
 
-        </div> */}
-
-        {/* <div className="flex flex-col items-between w-96">
-
-          {cars.data?.map((car: any) =>
+          {/* {cars.data?.map((car: any) =>
           <div className="flex flex-col justify-around text-body-color m-6 p-8 w-72 min-w-[18rem] h-40 opacity-100 rounded-md snap-center bg-red-800">
             <span >Producent: {car.producent}</span>
             <span >Model: {car.model}</span>
             <span >V-max: {car.vmax}</span>
             <span >{car.description}</span>
           </div>
-          )}
+          )} */}
 
-        </div> */}
+        </div>
 
         {/* <span>{places?.data?.[0]?.name}</span> */}
        
