@@ -81,4 +81,12 @@ model Car {
     description     String
 }
 
+model OfficialEvent {
+    id  String    @id @default(cuid())
+    organizer String
+    date String
+    place String
+    description String
+}
+
 
