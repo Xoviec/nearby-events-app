@@ -4,27 +4,23 @@ import { trpc } from "../utils/trpc";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useCallback, useState } from "react";
 import { userAgent } from "next/server";
-import { Menu } from '@headlessui/react'
+import { Menu } from "@headlessui/react";
 import Dropdown from "../components/shared/Dropdown";
 import { AssetOfficialEvents } from "../components/home/AssetOfficialEvents";
 
-
 export function Form() {
+  const addPlaceMutation = trpc.useMutation(["place.add"]);
 
-  const addPlaceMutation = trpc.useMutation(["place.add",])
-
-  function addPlace(event){
-    event.preventDefault()
-    console.log(event.target.name.value)
+  function addPlace(event) {
+    event.preventDefault();
+    console.log(event.target.name.value);
     const place = {
       name: event.target.name.value,
       rating: +event.target.rating.value,
       address: event.target.address.value,
-      description: event.target.description.value
-    }
-    addPlaceMutation.mutate({...place})
-    
-
+      description: event.target.description.value,
+    };
+    addPlaceMutation.mutate({ ...place });
   }
 
   return (
@@ -36,35 +32,32 @@ export function Form() {
       <input type="text" name="rating" required />
 
       <label>Address</label>
-      <input type="text"  name="address" required />
+      <input type="text" name="address" required />
 
       <label>Description</label>
       <input type="text" name="description" required />
 
       <button type="submit">Submit</button>
     </form>
-  )
+  );
 }
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
   const places = trpc.useQuery(["place.getAll"]);
   const cars = trpc.useQuery(["car.getAll"]);
-  const {data} = useSession();
-  const [page, setPage] = useState('official')
-
+  const { data } = useSession();
+  const [page, setPage] = useState("official");
 
   const handleSignIn = useCallback(() => signIn(), []);
   const handleSignOut = useCallback(() => signOut(), []);
 
-  console.log(places)
-  console.log(cars)
-  console.log(!!data) //tu jest czy zalogowany
+  console.log(places);
+  console.log(cars);
+  console.log(!!data); //tu jest czy zalogowany ebe ebe
 
   return (
     <>
-    
-   
       {/* <Head>
         <title>Create T3 App</title>
 
@@ -72,39 +65,42 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <header className="fixed flex w-[100%] h-16 bg-gray-200">
-        <div className="w-[10%] flex items-center justify-center bg-gray-400">BB4US</div>
+        <div className="w-[10%] flex items-center justify-center bg-gray-400">
+          BB4US
+        </div>
         <div className="bg-gray-500 w-[60%] flex items-center justify-around">
           <button>oficjalne</button>
           <button>wasze eventy</button>
         </div>
         <div className="w-[20%] bg-gray-500"> </div>
         <div className="flex items-center justify-center">
-          {
-            !!data ? 
-           
-              <Dropdown title={'Witaj ' + data.user?.name+ '!'}>
-                <div className="flex flex-col" >
-                  <button className="h-8">Ustawienia</button>
-                  <button onClick={handleSignOut} className="h-8">Logout</button>
-
-                </div>
-              </Dropdown> 
-  
-            : <button className="inline-flex justify-center w-full px-4 text-sm font-medium text-header-item-color-dark hover:text-header-item-color" onClick={handleSignIn}>Login</button>
-          }
+          {!!data ? (
+            <Dropdown title={"Witaj " + data.user?.name + "!"}>
+              <div className="flex flex-col">
+                <button className="h-8">Ustawienia</button>
+                <button onClick={handleSignOut} className="h-8">
+                  Logout
+                </button>
+              </div>
+            </Dropdown>
+          ) : (
+            <button
+              className="inline-flex justify-center w-full px-4 text-sm font-medium text-header-item-color-dark hover:text-header-item-color"
+              onClick={handleSignIn}
+            >
+              Login
+            </button>
+          )}
         </div>
       </header>
 
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
-          
-        
-        {/* <button onClick={handleSignOut}>Logout</button> */}
+          {/* <button onClick={handleSignOut}>Logout</button> */}
         </h1>
-        
-        <div className="flex flex-col items-between w-96">
 
-{/* {places.data?.map((place: any) =>
+        <div className="flex flex-col items-between w-96">
+          {/* {places.data?.map((place: any) =>
 <div className="flex flex-col justify-around text-body-color m-6 p-8 w-72 min-w-[18rem] h-40 opacity-100 rounded-md snap-center bg-red-800">
   <span >{place.name}</span>
   <span >{place.rating}/10</span>
@@ -112,19 +108,13 @@ const Home: NextPage = () => {
   <span >{place.description}</span>
 </div>
 )} */}
-
-</div>
+        </div>
 
         <div className="flex flex-row justify-between">
-
-          {
-            (page == 'official') ? <AssetOfficialEvents/> : 'eadsa'
-          }
-          
+          {page == "official" ? <AssetOfficialEvents /> : "eadsa"}
         </div>
 
         <div className="flex flex-col items-between w-96">
-
           {/* {cars.data?.map((car: any) =>
           <div className="flex flex-col justify-around text-body-color m-6 p-8 w-72 min-w-[18rem] h-40 opacity-100 rounded-md snap-center bg-red-800">
             <span >Producent: {car.producent}</span>
@@ -133,12 +123,10 @@ const Home: NextPage = () => {
             <span >{car.description}</span>
           </div>
           )} */}
-
         </div>
 
         {/* <span>{places?.data?.[0]?.name}</span> */}
-       
-        
+
         {/* <Form/> */}
 
         {/* <p className="text-2xl text-gray-700">This stack uses:</p>
