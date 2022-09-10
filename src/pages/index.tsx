@@ -66,14 +66,23 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <header className="fixed flex w-[100%] h-16 bg-cyan-600">
-        <div></div>
+        <div className="w-[10%] bg-red-600">BB4US</div>
+        <div className="bg-red-100 w-[60%] flex items-center justify-around">
+          <div >oficjalne</div>
+          <div >wasze eventy</div>
+        </div>
+        <div>
+          {
+            !!data ? <p>'Zalogowano'</p> : <p>Niezalogowano</p>
+          }
+        </div>
       </header>
 
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           
-        {/* <button onClick={handleSignIn}>Login</button>
-        <button onClick={handleSignOut}>Logout</button> */}
+        <button onClick={handleSignIn}>Login</button>
+        <button onClick={handleSignOut}>Logout</button>
         </h1>
         {/* <div className="flex flex-col items-between w-96">
 
