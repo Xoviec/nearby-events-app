@@ -9,7 +9,17 @@ import { useCallback } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { AssetDialog } from "../shared/AssetDialog";
 import { useState, Fragment } from 'react'
+import ellipsisIcon from "../../images/ellipsis.png"
+import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import { Autoplay } from "swiper";
 
 
 
@@ -25,12 +35,38 @@ export const AssetYourEvents = () =>{
     const yourEvents = trpc.useQuery(["yourEvent.getAll"]);
     console.log(yourEvents)
     return(<>
-            <div className="bg-color-gray-900 flex items-around ">
+
+<Swiper
+        spaceBetween={250}
+        slidesPerView={3}
+        modules={[Autoplay]}
+        autoplay={{
+          delay: 3000,
+          pauseOnMouseEnter: true,
+          disableOnInteraction: false
+        }}
+        navigation={false}
+      >
+            <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory asset-cards ">
                 {yourEvents.data?.map((yourEvent: any) => 
+               <SwiperSlide>
+
                     <AssetYourEvent date={yourEvent.date} organizer={yourEvent.organizer} place={yourEvent.place} description={yourEvent.description}> </AssetYourEvent>
+                </SwiperSlide> 
                 )}
             </div>
-            <div className="flex flex-col justify-center items-center w-[30rem] h-[40rem] bg-success-rgb border border-card-cap-bg mr-5 ml-5">
+            </Swiper>
+
+
+            <div className='flex flex-col items-end justify-end font-poppins-bold text-gray-100 border-none  h-[30rem] bg-green border border-card-cap-bg  rounded-lg cursor-pointer font-poppins'>
+                <div className="bg-green  flex items-center justify-center rounded-lg"></div>
+                <div className="flex flex-col justify-center items-center rounded-full h-32 w-32 bg-gray-800"></div>
+                <div>
+                    <Image width={80} height={80} src={ellipsisIcon} ></Image>
+                </div>
+                <div className="absolute mt-48 text-gray-700">tekst</div>
+
+                
                 <button>
                     <Image width={100} height={100}  src={icon} alt="" />  
                     {/* <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a> */}
