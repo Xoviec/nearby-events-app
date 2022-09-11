@@ -7,6 +7,7 @@ import { protectedExampleRouter } from "./protected-example-router";
 import { placesRouter } from "./places";
 import { carsRouter } from "./cars";
 import { officialEventsRouter } from "./officialEvents";
+import { yourEventsRouter } from "./yourEvents";
 
 // import { officialEvents } from "./officialEvents";
 
@@ -17,6 +18,7 @@ export const appRouter = createRouter()
   .merge("place.", placesRouter)
   .merge("car.", carsRouter)
   .merge("officialEvent.", officialEventsRouter)
+  .merge("yourEvent.", yourEventsRouter)
 
   // .merge("officialEvent.", officialEventsRouter);
   

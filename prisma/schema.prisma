@@ -89,4 +89,12 @@ model OfficialEvent {
     description String
 }
 
+model YourEvent {
+    id  String    @id @default(cuid())
+    organizer String
+    date String
+    place String
+    description String
+}
+
 
