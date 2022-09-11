@@ -87,6 +87,7 @@ model OfficialEvent {
     date String
     place String
     description String
+    category String
 }
 
 model YourEvent {
@@ -95,6 +96,7 @@ model YourEvent {
     date String
     place String
     description String
+    category String
 }
 
 

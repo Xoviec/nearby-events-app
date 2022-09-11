@@ -14,6 +14,8 @@ export const officialEventsRouter = createRouter()
       date: z.string(),
       place: z.string(),
       description: z.string(),
+      category: z.string(),
+
     }),
     async resolve({ ctx, input }) {
       return await ctx.prisma.officialEvent.create({data: {...input}});
