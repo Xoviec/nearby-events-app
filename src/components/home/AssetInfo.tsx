@@ -1,4 +1,5 @@
 import { AssetCard } from "./AssetCard";
+import { AssetCards } from "./AssetCards";
 
 
 export function AssetInfo(){
@@ -8,7 +9,7 @@ export function AssetInfo(){
     return(
         <div>
 
-            <AssetCard></AssetCard>
+            <AssetCards h1='dupa'></AssetCards>
 
 
         </div>

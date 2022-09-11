@@ -73,6 +73,9 @@ const Home: NextPage = () => {
   function oEvents(){
     setPage('official')
   }
+  function info(){
+    setPage('info')
+  }
 
   return (
     <>
@@ -88,22 +91,28 @@ const Home: NextPage = () => {
         <div className="w-[6%] flex items-center justify-center bg-header text-[#ec583a] font-poppins font-bold text-lg">
             BB4US
           </div>
-        <div className="bg-header w-[60%] flex items-center justify-around">
+        <div className="bg-header w-[60%] pl-20 flex items-center justify-around">
         <button
-              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold hover:bg-[#ec583a] hover:text-header"
+              className="bg-transparent h-[60%] w-[20%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold hover:bg-[#ec583a] hover:text-header"
               onClick={oEvents}
             >
               oficjalne
             </button>
             <button
-              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold hover:bg-[#ec583a] hover:text-header"
+              className="bg-transparent h-[60%] w-[20%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold hover:bg-[#ec583a] hover:text-header"
               onClick={urEvents}
             >
               wasze eventy
             </button>
+            <button
+              className="bg-transparent h-[60%] w-[20%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold hover:bg-[#ec583a] hover:text-header"
+              onClick={info}
+            >
+              Informacje
+            </button>
         </div>
         <div className="w-[20%] bg-header"> </div>
-        <div className="flex items-center justify-center">
+        <div className="flex w-[10%] items-center justify-center">
           {
             !!data ? 
            

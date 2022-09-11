@@ -10,7 +10,16 @@ import { useCallback, useState } from "react";
 import { useSession } from "next-auth/react";
 import { signIn, signOut} from "next-auth/react";
 
-export function AssetCard(){
+
+export type AssetCardProps = {
+    p: string;
+    h1?: string;
+    h2?: string;
+    h3: string;
+
+}
+
+export const AssetCard = (props: AssetCardProps) =>{
 
     let [isOpen, setIsOpen] = useState(false)
 
@@ -19,12 +28,12 @@ export function AssetCard(){
 
 
     return(
-        <div className="flex  items-center justify-center w-[50%]">
+        <div className="flex  items-center justify-center w-96">
         <div className='flex flex-col items-end justify-end font-poppins-bold text-gray-100 border-none h-[30rem] w-[90%] bg-green border border-card-cap-bg  rounded-lg cursor-pointer font-poppins'>
             <div className="test bg-green h-[60%] w-[100%] flex items-center justify-center rounded-lg">
             <div className="flex flex-col justify-center items-center rounded-full h-32 w-32 bg-gray-800">
                 <div>
-                    <Image width={80} height={80} src={ellipsisIcon} ></Image>
+                    <Image width={80} height={80} src={inspirationIcon} ></Image>
                 </div>
                 <div className="absolute mt-48 text-gray-700"></div>
                 {/* <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a> */}
@@ -33,17 +42,12 @@ export function AssetCard(){
             <div>
             </div>
             <div className="flex flex-col items-center justify-center bg-white h-[40%] w-[100%] rounded-lg">
-                <div className="h-[50%] w-[100%] flex justify-center items-center uppercase font-black font-lg">
-                {
-                !!data?
-                //  <Popover title='Stwórz swoje wydarzenie!'></Popover> 
-                <>           
-                <button className="font-3xl" onClick={() => setIsOpen(true)}>Stwórz własny event</button>      
+                <div className="h-[50%] w-[100%] flex flex-col justify-center items-center uppercase font-black font-lg">
+                <p>{props.p}</p>
+                <h1>{props.h1}</h1>
+                <h2>{props.h2}</h2>
+                <h3>{props.h3}</h3>
 
-              </>
-                 :
-                <button className="font-3xl" onClick={handleSignIn}>Zaloguj się aby utworzyć wydarzenie!</button>
-            }
                 </div>
             <div className="flex flex-row justify-around h-[50%] w-[100%]">                 
             </div>

@@ -9,8 +9,6 @@ import "swiper/css/pagination";
 
 // import required modules
 import { EffectFlip, Mousewheel, Navigation, Pagination } from "swiper";
-import { AssetForm } from "./AssetForm";
-import { AssetCard } from "./AssetCard";
 
 export function AssetCreateEvent(){
 
