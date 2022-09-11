@@ -39,7 +39,7 @@ export const AssetYourEvent = (props: AssetYourProps) =>{
                         props.category=='Koncert' ? 'bg-concert h-[60%] w-[100%] flex items-center justify-center rounded-lg':
                         props.category=='Edukacja' ? 'bg-orange h-[60%] w-[100%] flex items-center justify-center rounded-lg':
                         props.category=='Inne' ? 'bg-green h-[60%] w-[100%] flex items-center justify-center rounded-lg':
-                            'bg-green h-[60%] w-[100%] flex items-center justify-center rounded-lg'
+                            'test bg-green h-[60%] w-[100%] flex items-center justify-center rounded-lg'
                 }`}>
                 <div className="flex flex-col justify-center items-center rounded-full h-32 w-32 bg-gray-800">
                     <div>

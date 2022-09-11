@@ -36,7 +36,7 @@ export const AssetOfficialEvents = () =>{
     return(
        
       <Swiper
-        spaceBetween={250}
+        spaceBetween={30}
         slidesPerView={3}
         modules={[Autoplay]}
         autoplay={{
@@ -44,9 +44,9 @@ export const AssetOfficialEvents = () =>{
           pauseOnMouseEnter: true,
           disableOnInteraction: false
         }}
-        navigation={true}
+        // navigation={true}
       >
-            <div className="  overflow-x-auto scroll-smooth snap-x snap-mandatory asset-cards">
+            <div className="  overflow-x-auto scroll-smooth snap-x snap-mandatory">
                 {officialEvents.data?.map((officialEvent: any) => 
                 <SwiperSlide>
                   <AssetOfficialEvent date={officialEvent.date} organizer={officialEvent.organizer} place={officialEvent.place} description={officialEvent.description} category={officialEvent.category}> </AssetOfficialEvent>

@@ -10,6 +10,7 @@ import { AssetOfficialEvents } from "../components/home/AssetOfficialEvents";
 import { AssetYourEvents } from "../components/home/AssetYourEvents";
 import icon from '../images/cooperation.jpg'
 import Image from "next/image";
+import { AssetCreateEvent } from "../components/home/AssetCreateEvent";
 
 
 export function Form() {
@@ -74,21 +75,33 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="bg-gray-200">
+      <div className="bg-[#faf4d3]">
    
 
-      <header className="fixed flex w-[100%] h-16 bg-gray-800">
+      <header className="fixed flex w-[100%] h-16 bg-[#c7d0d5]">
         <div className="ml-4 mt-3">
           <Image className="p-4 m-4 rounded" width={50} height={40}  src={icon} alt="" />  
           {/* <a href="https://www.flaticon.com/free-icons/cooperation" title="Cooperation icons">Cooperation icons created by Freepik - Flaticon</a> */}
         </div>
         
-        <div className="w-[6%] flex items-center justify-center ">BB4US</div>
-        <div className="bg-gray-500 w-[60%] flex items-center justify-around">
-          <button className="bg-success-rgb h-[100%] w-[15%]" onClick={oEvents}>oficjalne</button>
-          <button className="bg-success-rgb h-[100%] w-[15%]" onClick={urEvents}>wasze eventy</button>
+        <div className="w-[6%] flex items-center justify-center bg-[#c7d0d5] text-[#ec583a] font-poppins font-bold">
+            BB4US
+          </div>
+        <div className="bg-[#c7d0d5] w-[60%] flex items-center justify-around">
+        <button
+              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold"
+              onClick={oEvents}
+            >
+              oficjalne
+            </button>
+            <button
+              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold"
+              onClick={urEvents}
+            >
+              wasze eventy
+            </button>
         </div>
-        <div className="w-[20%] bg-gray-500"> </div>
+        <div className="w-[20%] bg-[#c7d0d5]"> </div>
         <div className="flex items-center justify-center">
           {
             !!data ? 
@@ -124,7 +137,6 @@ const Home: NextPage = () => {
          
 
         </div>
-
       </main>
       </div>
     </>

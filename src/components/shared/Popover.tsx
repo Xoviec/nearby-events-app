@@ -7,8 +7,7 @@ export function Form() {
   const addYourEventMutation = trpc.useMutation(["yourEvent.add",])
 
   function addYourEvent(event){
-    // event.preventDefault()
-  //   console.log(event.target.name.value)
+
     const yourEvent = {
       organizer: event.target.organizer.value,
       date: event.target.date.value,
@@ -22,21 +21,24 @@ export function Form() {
 
 return (
   <form onSubmit={addYourEvent}>
-    <label>Name</label>
+    <label>Nazwa wydarzenia</label>
     <input type="text" name="organizer" required />
 
-    <label>Rating</label>
+    <label>Data</label>
     <input type="text" name="date" required />
-{/* 
-    <label>Address</label>
-    <input type="text"  name="place" required /> */}
 
-    <select name="place" id="">
-      <option>Dupa</option>
-      <option>CHuja</option>
+    <label>Miejsce</label>
+    <input type="text" name="place" required />
+  <p>Kategoria</p>
+    <select name="category" id=""> 
+      <option>Koncert</option>
+      <option>Sport</option>
+      <option>Warsztaty</option>
+      <option>Edukacja</option>
+      <option>Inne</option>
     </select>
-
-    <label>Description</label>
+  <p></p>
+    <label>Opis</label>
     <input type="text" name="description" required />
 
     <button type="submit">Submit</button>
