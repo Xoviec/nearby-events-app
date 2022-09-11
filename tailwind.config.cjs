@@ -31,15 +31,17 @@ module.exports = {
 
     fontFamily: {
       montserrat: ["Montserrat", "sans-serif"],
-      norwestern: ["Norwester", "sans-serif"]
+      norwestern: ["Norwester", "sans-serif"],
+      poppins: ["Poppins", "sans-serif"],
     },
     fontSize: {
-      '2xl': ['2.5rem', '2.5rem'],
-      'xxs': '.750rem',
-      'xs': '.8125rem',
+      "2xl": ["2.5rem", "2.5rem"],
+      xxs: ".750rem",
+      xs: ".8125rem",
+      xl: ["2.1rem", "2.1rem"],
     },
-    apexCharts:{
-      'apexcharts-tooltip': 'width: 20px'
+    apexCharts: {
+      "apexcharts-tooltip": "width: 20px",
     },
     colors: {
       "gray-100": "#1a1d21",
@@ -93,9 +95,9 @@ module.exports = {
       "twocolumn-menu-item-active-bg-dark": "rgba(255, 255, 255, 0.15)",
       "boxed-body-bg": "#111316",
       "heading-color": "#ced4da",
-      "light": "#2a2f34",
+      light: "#2a2f34",
       "light-rgb": "rgba(42,47,52, 1)",
-      "dark": "#eff2f7",
+      dark: "#eff2f7",
       "dark-rgb": "rgba(239,242,247, 1)",
       "link-color": "#ced4da",
       "link-hover-color": "#ced4da",
@@ -124,7 +126,16 @@ module.exports = {
       "input-group-addon-bg": "#2a2f34",
       "input-check-border": "#33393f",
       "gray-300": "#2a2f34",
-    }
+      neon: "#2d55ff",
+      neondown: "#002ce8",
+      neonup: "#829aff",
+      white: "#FFFFFF",
+      nneon: "#F4F7F8",
+      tneon: "#F1F1F1",
+      darkmode: "#202124",
+      dm2: "#111316",
+      copy: "#537FE7",
+    },
   },
   plugins: [],
 };

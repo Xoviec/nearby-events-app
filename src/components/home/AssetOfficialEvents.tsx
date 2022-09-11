@@ -14,6 +14,7 @@ export const AssetOfficialEvents = () =>{
     return(
             <div className="bg-color-gray-900 flex mr-5 ml-5 items-around w-[100%]">
                 {officialEvents.data?.map((officialEvent: any) => 
+                
                     <AssetOfficialEvent date={officialEvent.date} organizer={officialEvent.organizer} place={officialEvent.place} description={officialEvent.description}> </AssetOfficialEvent>
                 )}
             </div>
