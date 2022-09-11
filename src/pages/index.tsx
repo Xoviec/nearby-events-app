@@ -11,6 +11,7 @@ import { AssetYourEvents } from "../components/home/AssetYourEvents";
 import icon from '../images/cooperation.jpg'
 import Image from "next/image";
 import { AssetCreateEvent } from "../components/home/AssetCreateEvent";
+import { AssetInfo } from "../components/home/AssetInfo";
 
 
 export function Form() {
@@ -55,7 +56,7 @@ const Home: NextPage = () => {
   const places = trpc.useQuery(["place.getAll"]);
   const cars = trpc.useQuery(["car.getAll"]);
   const {data} = useSession();
-  const [page, setPage] = useState('official')
+  const [page, setPage] = useState('info')
 
 
   const handleSignIn = useCallback(() => signIn(), []);
@@ -126,7 +127,9 @@ const Home: NextPage = () => {
         <div className="w-[100%] mt-56 flex fixed justify-center items-center">
 
           {
-            (page == 'official') ? <AssetOfficialEvents/> : <AssetYourEvents/>
+            (page == 'official') ? <AssetOfficialEvents/> :
+            (page == 'info') ? <AssetInfo/> :
+            <AssetYourEvents/>
           }
           
           
