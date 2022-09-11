@@ -40,6 +40,7 @@ module.exports = {
       xxs: ".750rem",
       xs: ".8125rem",
       xl: ["2.1rem", "2.1rem"],
+      lg: ["1.6rem", "1.6rem"],
     },
     apexCharts: {
       "apexcharts-tooltip": "width: 20px",
@@ -131,7 +132,9 @@ module.exports = {
       "blu": "#2AB9C9",
       "orange": "#EBA521",
       "green": "#96CD56",
-      neon: "#2d55ff",
+      "purple": "#702669",
+      "header": "#ff962e",
+      "neon": "#2d55ff",
       neondown: "#002ce8",
       neonup: "#829aff",
       white: "#FFFFFF",
@@ -140,6 +143,7 @@ module.exports = {
       darkmode: "#202124",
       dm2: "#111316",
       copy: "#537FE7",
+      black:"#000"
     },
   },
   plugins: [],

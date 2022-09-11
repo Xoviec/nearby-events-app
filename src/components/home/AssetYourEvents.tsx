@@ -3,13 +3,20 @@ import { trpc } from "../../utils/trpc";
 import { date } from "zod";
 import icon from '../../images/add.png'
 import Image from "next/image";
+import concertIcon from "../../images/concert.png"
+import wrenchIcon from "../../images/wrench.png"
+import sportIcon from "../../images/sport.png"
+import ellipsisIcon from "../../images/ellipsis.png"
+import inspirationIcon from "../../images/inspiration.png"
+import questionMarkIcon from "../../images/question-mark.png"
+
+
 import { Dialog, Transition  } from "@headlessui/react";
 import Popover, { Form } from "../shared/Popover";
 import { useCallback } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { AssetDialog } from "../shared/AssetDialog";
 import { useState, Fragment } from 'react'
-import ellipsisIcon from "../../images/ellipsis.png"
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -30,7 +37,6 @@ export const AssetYourEvents = () =>{
     const {data} = useSession();
     const handleSignIn = useCallback(() => signIn(), []);
 
-
     const yourEvents = trpc.useQuery(["yourEvent.getAll"]);
     console.log(yourEvents)
     return(<>
@@ -39,18 +45,18 @@ export const AssetYourEvents = () =>{
                 <Swiper
                 spaceBetween={30}
                 slidesPerView={2}
-                modules={[Autoplay]}
-                autoplay={{
-                    delay: 3000,
-                    pauseOnMouseEnter: true,
-                    disableOnInteraction: false
-                }}
+                // modules={[Autoplay]}
+                // autoplay={{
+                //     delay: 3000,
+                //     pauseOnMouseEnter: true,
+                //     disableOnInteraction: false
+                // }}
                 navigation={false}
             >
             <div className="overflow-x-auto scroll-smooth snap-x snap-mandatory asset-cards w-[66%] ">
                 {yourEvents.data?.map((yourEvent: any) => 
                <SwiperSlide>
-                    <AssetYourEvent date={yourEvent.date} organizer={yourEvent.organizer} place={yourEvent.place} description={yourEvent.description}> </AssetYourEvent>
+                    <AssetYourEvent date={yourEvent.date} organizer={yourEvent.organizer} place={yourEvent.place} description={yourEvent.description} category={yourEvent.category}> </AssetYourEvent>
                 </SwiperSlide> 
                 )}
             </div>
@@ -58,11 +64,11 @@ export const AssetYourEvents = () =>{
             
             
         <div className="flex  items-center justify-center w-[50%]">
-            <div className='flex flex-col items-end justify-end font-poppins-bold text-gray-100 border-none h-[30rem] w-[90%] bg-green border border-card-cap-bg  rounded-lg cursor-pointer font-poppins'>
-                <div className="test bg-green h-[60%] w-[100%] flex items-center justify-center rounded-lg">
+            <div className='flex flex-col items-end justify-end font-poppins-bold text-gray-100 border-none h-[30rem] w-[90%] bg-purple border border-card-cap-bg  rounded-lg  font-poppins'>
+                <div className="test bg-purple h-[60%] w-[100%] flex items-center justify-center rounded-lg">
                 <div className="flex flex-col justify-center items-center rounded-full h-32 w-32 bg-gray-800">
                     <div>
-                        <Image width={80} height={80} src={ellipsisIcon} ></Image>
+                        <Image width={80} height={80} src={questionMarkIcon} ></Image>
                     </div>
                     <div className="absolute mt-48 text-gray-700"></div>
                     {/* <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik - Flaticon</a> */}
@@ -79,7 +85,6 @@ export const AssetYourEvents = () =>{
                     <button className="font-3xl" onClick={() => setIsOpen(true)}>
                     <Dropdown title={'Utwórz wydarzenie'}>
                         <div className="flex flex-col" >
-                            <button className="h-8">Ustawienia</button>
                             <Form/>
                         </div>
               </Dropdown> 

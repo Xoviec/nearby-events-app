@@ -16,7 +16,7 @@ export default function Dropdown({title, children}: DropdownProps) {
   return (
     <Menu as="div" className="relative inline-block text-left z-50">
       <div>
-        <Menu.Button className="inline-flex justify-center w-full px-4 text-sm font-medium text-header-item-color-dark hover:text-header-item-color">
+        <Menu.Button className="inline-flex justify-center w-full px-4 text-sm font-medium text-[#000000] hover:text-gray-200">
           {title}
         </Menu.Button>
       </div>
@@ -30,9 +30,13 @@ export default function Dropdown({title, children}: DropdownProps) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items static as='div' className="origin-top-right absolute right-0 mt-2 w-44 rounded-md shadow-lg bg-header-bg ring-1 ring-header-bg ring-opacity-5 focus:outline-none border border-border-color">
+       <Menu.Items
+          static
+          as="div"
+          className="origin-top-right absolute right-0 mt-2 w-44 rounded- shadow-lg bg-header ring-1 ring-header-bg ring-opacity-5  focus:outline-none rounded-md"
+        >
             
-          <div className="py-1 text-xs text-gray-900">
+          <div className="py-1   text-[#d95a41] ">
             {children}
           </div>
 

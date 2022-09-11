@@ -12,38 +12,39 @@ export function Form() {
       organizer: event.target.organizer.value,
       date: event.target.date.value,
       place: event.target.place.value,
-      description: event.target.description.value
+      description: event.target.description.value,
+      category: event.target.category.value
     }
     addYourEventMutation.mutate({...yourEvent})
     
 
   }
 
-return (
-  <form onSubmit={addYourEvent}>
-    <label>Nazwa wydarzenia</label>
-    <input type="text" name="organizer" required />
+  return (
+    <form className='max-w-xs flex flex-col items-center' onSubmit={addYourEvent}>
+        <label className='px-1'>Nazwa wydarzenia</label>
+        <input type="text" name="organizer" className="text-black bg-[#f0b859] shadow-md w-32" required />
 
-    <label>Data</label>
-    <input type="text" name="date" required />
+        <label className='px-1'>Data</label>
+        <input type="text" name="date" className="text-black bg-[#f0b859] shadow-md  w-32 " required />
 
-    <label>Miejsce</label>
-    <input type="text" name="place" required />
-  <p>Kategoria</p>
-    <select name="category" id=""> 
-      <option>Koncert</option>
-      <option>Sport</option>
-      <option>Warsztaty</option>
-      <option>Edukacja</option>
-      <option>Inne</option>
-    </select>
-  <p></p>
-    <label>Opis</label>
-    <input type="text" name="description" required />
+        <label className='px-1'>Miejsce</label>
+        <input type="text" name="place" className="text-black bg-[#f0b859] shadow-md  w-32" required />
+        <p className='px-1'>Kategoria</p>
+        <select name="category" id="" className="text-black bg-[#f0b859] shadow-md  w-32">
+          <option className="text-black">Koncert</option>
+          <option className="text-black">Sport</option>
+          <option className="text-black">Warsztaty</option>
+          <option className="text-black">Edukacja</option>
+          <option className="text-black">Inne</option>
+        </select>
+        <p></p>
+        <label className='px-1'>Opis</label>
+        <input type="text" name="description" className="text-black bg-[#f0b859] shadow-md  w-32" required />
 
-    <button type="submit">Submit</button>
-  </form>
-)
+        <button type="submit" className='px-1 w-[100%] mt-2 hover:bg-danger-rgb hover:text-gray-100 hover:shadow-md'>Submit</button>
+    </form>
+  );
 }
 
 export type PopoverProps = {

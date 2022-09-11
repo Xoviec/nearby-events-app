@@ -75,41 +75,41 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="bg-[#faf4d3]">
+      <div className="bg-[#d95a41]">
    
 
-      <header className="fixed flex w-[100%] h-16 bg-[#c7d0d5]">
+      <header className="fixed flex w-[100%] h-16 bg-header">
         <div className="ml-4 mt-3">
           <Image className="p-4 m-4 rounded" width={50} height={40}  src={icon} alt="" />  
           {/* <a href="https://www.flaticon.com/free-icons/cooperation" title="Cooperation icons">Cooperation icons created by Freepik - Flaticon</a> */}
         </div>
         
-        <div className="w-[6%] flex items-center justify-center bg-[#c7d0d5] text-[#ec583a] font-poppins font-bold">
+        <div className="w-[6%] flex items-center justify-center bg-header text-[#ec583a] font-poppins font-bold text-lg">
             BB4US
           </div>
-        <div className="bg-[#c7d0d5] w-[60%] flex items-center justify-around">
+        <div className="bg-header w-[60%] flex items-center justify-around">
         <button
-              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold"
+              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold hover:bg-[#ec583a] hover:text-header"
               onClick={oEvents}
             >
               oficjalne
             </button>
             <button
-              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold"
+              className="bg-transparent h-[60%] w-[15%] font-poppins text-[#ec583a] uppercase rounded-xl border-2 font-bold hover:bg-[#ec583a] hover:text-header"
               onClick={urEvents}
             >
               wasze eventy
             </button>
         </div>
-        <div className="w-[20%] bg-[#c7d0d5]"> </div>
+        <div className="w-[20%] bg-header"> </div>
         <div className="flex items-center justify-center">
           {
             !!data ? 
            
               <Dropdown title={'Witaj ' + data.user?.name+ '!'}>
                 <div className="flex flex-col" >
-                  <button className="h-8">Ustawienia</button>
-                  <button onClick={handleSignOut} className="h-8">Logout</button>
+                  <button className="h-8 hover:bg-danger-rgb hover:text-gray-100 hover:shadow-md">Ustawienia</button>
+                  <button onClick={handleSignOut} className="h-8 hover:bg-danger-rgb hover:text-gray-100 hover:shadow-md">Logout</button>
 
                 </div>
               </Dropdown> 
